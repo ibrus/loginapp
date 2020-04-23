@@ -14,9 +14,6 @@ public class MainController {
     @Autowired
     private UserService userService;
 
-//    @Autowired
-//    private SecurityService securityService;
-
     @Autowired
     private UserValidator userValidator;
 
@@ -36,8 +33,6 @@ public class MainController {
         }
 
         userService.save(userForm);
-
-//        securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
 
         return "redirect:/login";
     }

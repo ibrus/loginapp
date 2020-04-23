@@ -10,17 +10,16 @@
 <form th:action="@{/registration}"
       th:object="${userForm}" method="POST">
     Name:
-    <input type="text" th:field="*{username}" />
-    <p th:if="${error}" class="error"
-       style="color:red;font-style:italic;">
+    <input type="text" th:field="*{username}"/>
+    <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
     <br/>
     Password:
-    <input type="password" th:field="*{password}" />
-    <p th:if="${error}" th:utext="${error}"
-       style="color:red;font-style:italic;">
+    <input type="password" th:field="*{password}"/>
+    <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
     <br/>
     Confirm Password:
-    <input type="password" th:field="*{passwordConfirm}" />
+    <input type="password" th:field="*{passwordConfirm}"/>
+    <span class="error" th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}"></span>
     <br/>
     <input type="submit" value="Create" />
 </form>
