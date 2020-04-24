@@ -7,17 +7,24 @@
 <body>
 <h1>Log In</h1>
 
-<p th:if="${error}" th:utext="${error}"
-   style="color:#ff0000;font-style:italic;">
-    <form th:action="@{/login}" method="post">
-        <label for="username">Username</label>:
-        <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
-        <label for="password">Password</label>:
-        <input type="password" id="password" name="password" /> <br />
-        <input type="submit" value="Log in" />
-    </form>
-    <a href="registration">New User?</a>
-<br/>
+<span th:if="${error}" th:utext="${error}"
+      style="color:#ff0000;font-style:italic;"></span>
 
+<form action="#" th:action="@{/login}" method="post">
+    <div class="form-group">
+        <input type="text" name="username" class="form-control"
+               id="username" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <input type="password" name="password" class="form-control"
+               id="password" placeholder="Password">
+    </div>
+    <div class="col-md-6 mt-5">
+        <input type="submit" class="btn btn-primary" value="Log in">
+    </div>
+</form>
+<form action="/registration" target="_blank">
+    <button>New user?</button>
+</form>
 </body>
 </html>
