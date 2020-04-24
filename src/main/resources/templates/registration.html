@@ -8,7 +8,7 @@
 <h1>Create User:</h1>
 
 <form th:action="@{/registration}"
-      th:object="${userForm}" method="POST">
+      th:object="${user}" method="POST" modelAttribute="person" commandName="registration">
     Name:
     <input type="text" th:field="*{username}"/>
     <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
@@ -19,11 +19,9 @@
     <br/>
     Confirm Password:
     <input type="password" th:field="*{passwordConfirm}"/>
-    <span class="error" th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}"></span>
     <br/>
     <input type="submit" value="Create" />
 </form>
 <br/>
-
 </body>
 </html>
